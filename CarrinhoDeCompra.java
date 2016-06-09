@@ -9,7 +9,7 @@ public class CarrinhoDeCompra {
     private double vrTotal = 0;
 
     public void addPizza(Pizza pizza){
-        if (pizza.totalIngredientes > 0) {
+        if (pizza.getCountIngredientesPizza() > 0) {
             this.itensCarrinho.add(pizza);
         }
     }
@@ -26,7 +26,7 @@ public class CarrinhoDeCompra {
     public void listaSabores(){
 
         for (Pizza p: itensCarrinho) {
-            System.out.println(" * " + p.getSabor());
+            System.out.println(" * " + p.getSabor() + " | Valor R$ " + p.getPreco());
         }
         System.out.println();
     }
@@ -36,4 +36,5 @@ public class CarrinhoDeCompra {
             System.out.println("Ingrediente: " + p + " - Qtde: " + Pizza.ingredientes.get(p) );
         }
     }
+
 }

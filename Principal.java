@@ -1,5 +1,3 @@
-import javax.sound.midi.Soundbank;
-
 /**
  * Created by wellingtonalvesdasneves on 6/6/16.
  */
@@ -32,8 +30,10 @@ public class Principal {
         carrinhoDeCompra.listaSabores();
 
         System.out.println("| Relatório de Valor |");
-        if (carrinhoDeCompra.getVrTotal() > 0 ) {
-            System.out.println("Preço Total: R$ " + carrinhoDeCompra.getVrTotal());
+        Double vrTotalCarrinho = carrinhoDeCompra.getVrTotal();
+
+        if (vrTotalCarrinho > 0 ) {
+            System.out.println("Preço Total: R$ " + vrTotalCarrinho);
         }else {
             System.out.println("Carrinho de Compras Vazio!");
         }

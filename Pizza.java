@@ -7,6 +7,14 @@ import java.util.Map;
 public class Pizza {
     public static Integer totalIngredientes = 0;
     public static Map<String, Integer> ingredientes = new HashMap<>();
+    private double vrPizza;
+
+    private int countIngredientesPizza = 0;
+
+    public static void zeraIngredientes (){
+        totalIngredientes = 0;
+        ingredientes.clear();
+    }
 
     private String sabor;
 
@@ -22,6 +30,7 @@ public class Pizza {
             ingredientes.computeIfPresent(ingrediente,(k,v) -> v + 1);
         }
 
+        countIngredientesPizza += 1;
         contabilizaIngrediente();
     }
 
@@ -32,9 +41,9 @@ public class Pizza {
     public Double getPreco(){
         double preco = 0;
 
-        if (totalIngredientes >= 2) {
+        if (countIngredientesPizza <= 2) {
             preco = 15;
-        }else if(totalIngredientes >= 3 && totalIngredientes <= 5){
+        }else if(countIngredientesPizza >= 3 && countIngredientesPizza <= 5){
             preco = 20;
         }else{
             preco = 23;
@@ -42,12 +51,12 @@ public class Pizza {
         return preco;
     }
 
-//    public void listaDeIngredientes() {
-//        for (Map<String, Integer> item : ingredientes)
-//            System.out.println("Ingrediente Utilizado : " + item.getKey() + " " + item.getValue() + " unidade(s)");
-//    }
-
     public String getSabor() {
         return sabor;
     }
+
+    public int getCountIngredientesPizza() {
+        return countIngredientesPizza;
+    }
+
 }
